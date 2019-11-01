@@ -15,8 +15,12 @@ def random_adjective():
 def random_polite_adjective():
     return random.choice(POLITE_ADJECTIVES).title()
 
-def random_namepair():
-    return u"{} {}".format(random_adjective(), random_noun())
+def random_namepair(easy=True):
+    """return filename if true and name with spaces if false"""
+    if easy:
+        return "{}_{}".format(random_adjective().lower(), random_noun().lower())
+    else:
+        return "{} {}".format(random_adjective(), random_noun())
 
 def random_polite_animalpair():
-    return u"{} {}".format(random_polite_adjective(), random_animal())
+    return "{} {}".format(random_polite_adjective(), random_animal())
